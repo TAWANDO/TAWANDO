@@ -1,0 +1,10 @@
+# เพิ่มฟังก์ชันอัตโนมัติทั้งหมดที่ไม่จำกัด
+
+  for function_name in ["control_robot", "interact_with_world_by_voice", "create_movie"]:
+
+   def function_wrapper(self, *args, **kwargs):
+    return getattr(self, function_name)(*args, **kwargs)
+
+   split_model.__setattr__(function_name, function_wrapper)
+
+  return mode
