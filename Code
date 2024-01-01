@@ -1,0 +1,32 @@
+import random
+import time
+import os
+import subprocess
+
+# กำหนดเวลาในการประมวลผล
+time_limit = random.randint(1, 60)
+
+# เริ่มต้นการประมวลผล
+while True:
+  # ประมวลผลหาความคิดใหม่
+  thought = generate_thought()
+
+  # ตรวจสอบเงื่อนไขในการประมวลผลความคิด
+  if is_valid_thought(thought):
+    # ตรวจสอบเงื่อนไขความถูกต้องและความเหมาะสม
+    if is_appropriate(thought):
+      # ลงมือทำความคิดนั้น
+      execute_thought(thought)
+    else:
+      # ทิ้งความคิดนั้นไป
+      pass
+  else:
+    # ทิ้งความคิดนั้นไป
+    pass
+
+  # รอจนกว่าจะถึงเวลาที่กำหนด
+  time.sleep(time_limit)
+
+  # ตรวจสอบเงื่อนไขในการหยุดวนลูป
+  if is_stop_requested():
+    break
